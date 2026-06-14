@@ -1,0 +1,22 @@
+﻿,CSV Row,Field,Issue Identified,Automated Remediation Policy
+0,5,amount,Malformed numeric string containing commas,Stripped formatting characters
+1,7,paid_by,Inconsistent casing/alias name match: priya,Normalized value to relational record key
+2,8,amount,Sub-paisa floating point precision violation,Rounded to 2 decimal places
+3,9,paid_by,Inconsistent casing/alias name match: Priya S,Normalized value to relational record key
+4,11,paid_by,Missing explicit transaction payer field,Quarantined to placeholder Unassigned system user
+5,12,split_type,Settlement ledger transaction mistakenly logged as an expense,Redirected from expenses pipeline straight to settlements ledger
+6,13,split_details,Mathematical invariant mismatch: Total sum equals 110% instead of 100%,Forced mathematical normalization to scale factor 100%
+7,18,currency,Multi-currency transaction identified (USD),Normalized value to INR using exchange coefficient 83.0
+8,19,currency,Multi-currency transaction identified (USD),Normalized value to INR using exchange coefficient 83.0
+9,21,currency,Multi-currency transaction identified (USD),Normalized value to INR using exchange coefficient 83.0
+10,21,split_with,Non-group member found in split matrix (Kabir),Assigned Kabir debt obligation directly to his sponsor Dev
+11,24,currency,Multi-currency transaction identified (USD),Normalized value to INR using exchange coefficient 83.0
+12,25,paid_by,Inconsistent casing/alias name match: rohan ,Normalized value to relational record key
+13,26,currency,Missing currency field,Defaulted to INR asset base
+14,29,amount,Zero-value accounting balance row detected,Logged as informational row warning; dropped from ledger balances
+15,30,split_details,Mathematical invariant mismatch: Total sum equals 110% instead of 100%,Forced mathematical normalization to scale factor 100%
+16,34,split_with,Tenancy lifetime violation: Meera charged after lease end date,Omitted Meera from active split array calculations
+17,36,split_type,Settlement ledger transaction mistakenly logged as an expense,Redirected from expenses pipeline straight to settlements ledger
+18,37,split_with,Tenancy lifetime violation: Sam charged prior to lease start date,Omitted Sam from active split array calculations
+19,38,split_with,Tenancy lifetime violation: Sam charged prior to lease start date,Omitted Sam from active split array calculations
+20,40,split_details,Conflict between split_type equal and split_details definitions,Executed as standard fallback equal distribution
