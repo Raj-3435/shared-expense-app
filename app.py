@@ -7,7 +7,12 @@ from importer import run_import
 DB_NAME = "expenses.db"
 
 st.set_page_config(page_title="SplitSmart - Shared Ledger App", layout="wide", page_icon="💸")
+# Auto-initialize database tables if the file is missing or empty on the cloud server
+import os
+import init_db
 
+if not os.path.exists(DB_NAME) or os.path.getsize(DB_NAME) == 0:
+    init_db.initialize_database()
 # --- DATABASE UTILITIES ---
 def get_db_connection():
     conn = sqlite3.connect(DB_NAME)
